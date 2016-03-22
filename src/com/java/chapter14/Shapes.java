@@ -35,7 +35,7 @@ class Triangle extends Shape{
 	}
 }
 
-
+// 添加一行注释
 public class Shapes {
 	public static void main(String[] args) {
 		List<Shape> shapeList = Arrays.asList(new Circle(),new Square(),new Triangle());
