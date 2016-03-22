@@ -7,7 +7,10 @@ import java.util.List;
 /**
  * 在此主要是为了表现多态
  * @author gongchunru
+ * RTTI（Run-Time Type Identification)，
+ * 通过运行时类型信息程序能够使用基类的指针或引用来检查这些指针或引用所指的对象的实际派生类型。
  *
+ * 多态(polymorphism)是基于RTTI实现的。RTTI的功能主要是由Class类实现的
  */
 abstract class Shape {
 	void draw(){
@@ -34,6 +37,7 @@ class Triangle extends Shape{
 		return "Triangle";
 	}
 }
+
 
 // 添加一行注释
 public class Shapes {
