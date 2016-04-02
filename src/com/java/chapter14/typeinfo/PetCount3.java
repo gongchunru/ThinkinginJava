@@ -3,9 +3,7 @@ package com.java.chapter14.typeinfo;
 import com.java.chapter14.net.mindview.util.MapData;
 import com.java.chapter14.typeinfo.pets.LiteralPetCreator;
 import com.java.chapter14.typeinfo.pets.Pet;
-import com.java.chapter14.typeinfo.pets.PetCreator;
 import com.java.chapter14.typeinfo.pets.Pets;
-import sun.jvm.hotspot.debugger.MappedByteBufferDataSource;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
