@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  *  这是快速报错机制，是Java容器的一种保护机制，能够防止多个进程同时修改一个容器的内存。
@@ -17,7 +14,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *  其中ConcurrentHashMap ,CopyOnWriteArrayList, CopyOnWriteArraySet 
  *  都使用了ConcurrentModificationException技术
  * @author gongchunru
- *
+ *  
  */
 public class FailFast {
 	
@@ -31,7 +28,5 @@ public class FailFast {
 		} catch (ConcurrentModificationException e) {
 			System.out.println(e);
 		}
-		
 	}
-
 }

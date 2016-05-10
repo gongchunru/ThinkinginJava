@@ -2,6 +2,7 @@ package com.java.improve.container.list;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 public class ListForArrayListEfficiencyTest2 {
 	public static void main(String[] args){  
@@ -40,6 +41,8 @@ public class ListForArrayListEfficiencyTest2 {
         System.out.println("第三种方法耗时：" + (t4-t3)/1000 + "微秒");  
         System.out.println("第四种方法耗时：" + (t5-t4)/1000 + "微秒");  
           
+        
+        
     }  
 
 }

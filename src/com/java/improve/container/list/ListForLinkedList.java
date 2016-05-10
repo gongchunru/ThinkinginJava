@@ -18,7 +18,8 @@ public class ListForLinkedList {
 		b.add("Doug");
 		b.add("Frances");
 		b.add("Gloria");
-		
+		b.iterator()
+;		
 		
 		//merge the words from b into a
 		ListIterator<String> aIter = a.listIterator();
