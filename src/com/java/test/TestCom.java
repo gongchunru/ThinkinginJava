@@ -7,19 +7,11 @@ import java.util.List;
 
 public class TestCom {
 	public static void main(String[] args) {
-		String s = "hello";
-
-		String sArr = "[\\\"" + s + "\\\"]";
-		System.out.println(sArr);
-
-//		String[] s1 = new String[]{"hello"," world"};
-//
-//		System.out.println(Arrays.toString(s1));
-//
-//		List list = new ArrayList();
-//		list.add("hello");
-//		String s2 = list.toArray().toString();
-//		System.out.println(s2);
+		String s = "192.168.1.202.123";
+//		int s1 = s.lastIndexOf(".",4);
+		String[] s1 = s.split("^\\d+\\.\\d+\\.\\d+\\.\\d+$^[1-9].*[1-9]$");
+		System.out.println(Arrays.toString(s1));
+//		System.out.println(s.substring(0,s1));
 
 	}
 }
