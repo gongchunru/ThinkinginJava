@@ -1,6 +1,7 @@
 package com.java.improve.NIODemo.ch8;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.ByteBuffer;
@@ -10,11 +11,14 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.spi.SelectorProvider;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by 龚春如 on 2016/7/20.
  */
 public class MultiThreadNIOEchoServer {
+    private static ExecutorService tp = Executors.newCachedThreadPool();
     public static Map<Socket,Long> geym_time_stat = new HashMap<Socket, Long>(10240);
     class EchoClient{
         private LinkedList<ByteBuffer>  outq;
@@ -42,12 +46,34 @@ public class MultiThreadNIOEchoServer {
         public void run() {
             EchoClient echoClient = (EchoClient) sk.attachment();
             echoClient.enqueue(bb);
-            sk.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+            sk.interestOps(SelectionKey.OP_READ | SelectionKey.OP_WRITE);//修改我们感兴趣的事件。
            //强迫selector立即返回
             selector.wakeup();
         }
     }
     private Selector selector;
+
+    private void doAccept(SelectionKey sk){
+        ServerSocketChannel server = (ServerSocketChannel)sk.channel();
+        SocketChannel clientChannel;
+        try{
+            clientChannel = server.accept();
+            clientChannel.configureBlocking(false);//设置为非阻塞模式
+
+            //Register this channel for reading
+            SelectionKey clientKey = clientChannel.register(selector,SelectionKey.OP_READ);
+            //Allocate an EchoClient instance and attach it to this s election key;
+            EchoClient echoClient = new EchoClient();
+            clientKey.attach(echoClient);
+
+            InetAddress clientAddress =clientChannel.socket().getInetAddress();
+            System.out.println("Accept connection from "+clientAddress.getHostAddress());
+        }catch (Exception e){
+            System.out.println("");
+            e.printStackTrace();
+        }
+
+    }
 
     private void doWrite(SelectionKey sk){
         SocketChannel channel = (SocketChannel) sk.channel();
@@ -98,8 +124,8 @@ public class MultiThreadNIOEchoServer {
             disconnect(sk);
             return;
         }
-        bb.flip();
-        tp.execute(new HandleMsg(sk,bb));
+        bb.flip();//读写转换
+        tp.execute(new HandleMsg(sk,bb));//交给线程处理
     }
 
     public static void main(String[] args) {
@@ -135,7 +161,7 @@ public class MultiThreadNIOEchoServer {
 //                    doAccept(sk);
                 }else if (sk.isValid() && sk.isReadable()){
                     if (!geym_time_stat.containsKey(((SocketChannel)sk.channel()).socket())){
-                        geym_time_stat.put(((SocketChannel)sk.channel()).socket(),System.currentTimeMillis());
+                        geym_time_stat.put(((SocketChannel)sk.channel()).socket(),System.currentTimeMillis());//准备好了就记录个时间
                         doRead(sk);
                     }
                 } else if (sk.isValid() && sk.isWritable()){

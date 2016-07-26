@@ -1,4 +1,4 @@
-package com.java.TheArtOfJavaConcProgramming;
+package com.java.TheArtOfJavaConcProgramming.ch4;
 
 import jdk.nashorn.internal.scripts.JO;
 
