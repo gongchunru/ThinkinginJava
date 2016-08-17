@@ -14,6 +14,7 @@ public class SequenceB implements Sequence {
         }
     };
 
+
     @Override
     public int getNumber() {
         numberContainer.set(numberContainer.get()+1);
