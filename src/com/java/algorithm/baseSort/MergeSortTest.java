@@ -53,7 +53,7 @@ public class MergeSortTest {
 
         while (left<=center &&  mid <=right){
             //从两个数组中取出最小的放入临时数组
-            if (data[left] < data[mid]){
+            if (data[left] <= data[mid]){
                 tempArr[third++] = data[left++];
             }else{
                 tempArr[third++] = data[mid++];
@@ -70,7 +70,7 @@ public class MergeSortTest {
 
         //将临时数组中的内容拷贝回原数组中
         //(原left+center范围内的内容将被复制到原数组中去)
-        while (temp<right){
+        while (temp<=right){
             data[temp] = tempArr[temp++];
         }
     }
