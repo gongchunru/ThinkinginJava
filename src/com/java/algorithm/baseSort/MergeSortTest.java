@@ -2,6 +2,19 @@ package com.java.algorithm.baseSort;
 
 /**
  * Created by gongchunru on 2016/8/17.
+ * 归并排序（Merge）是将两个（或两个以上）有序表合并成一个新的有序表，
+ * 即把待排序序列分为若干个子序列，每个子序列是有序的。然后再把有序子序列合并为整体有序序列。
+ *
+ * 归并排序算法稳定，数组需要O(n)的额外空间，链表需要O(log(n))的额外空间，
+ * 时间复杂度为O(nlog(n))，算法不是自适应的，不需要对数据的随机读取。
+ *
+ * 工作原理：
+ *  1. 申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列
+ *  2. 设定两个指针，最初位置分别为两个已经排序序列的起始位置
+    3、比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置
+    4、重复步骤3直到某一指针达到序列尾
+    5、将另一序列剩下的所有元素直接复制到合并序列尾
+ *
  */
 public class MergeSortTest {
 
@@ -16,8 +29,6 @@ public class MergeSortTest {
     public static void mergeSort(int[] data){
         sort(data,0,data.length-1);
     }
-
-
 
     public static void sort(int[] data,int left,int right){
         if (left >= right)
