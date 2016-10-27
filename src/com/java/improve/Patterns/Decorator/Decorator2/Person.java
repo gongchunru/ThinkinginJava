@@ -4,7 +4,7 @@ package com.java.improve.Patterns.Decorator.Decorator2;
  * Created by 龚春如 on 2016/7/14.
  */
 
-//定义被装饰者，被装饰者出事状态有些自己的装饰。
+//定义被装饰者，被装饰者初始状态有些自己的装饰。
 public class Person  implements Human{
 
 

@@ -8,11 +8,11 @@ import java.util.concurrent.*;
  */
 public class CallableAndFuture2 {
     public static void main(String[] args) {
-        ExecutorService threadPool =  Executors.newSingleThreadExecutor();
+        ExecutorService threadPool = Executors.newSingleThreadExecutor();
         Future<Integer> future = threadPool.submit(new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                return new Random().nextInt(100);
+                return new Random().nextInt();
             }
         });
             try {

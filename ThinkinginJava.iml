@@ -7,14 +7,27 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="inheritedJdk" />
-    <orderEntry type="module-library">
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
           <root url="jar://C:/work/repository/junit/junit/4.12/junit-4.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../Java/opensource/netty/netty-5.0.0.Alpha1/jar/all-in-one" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../../../Java/opensource/netty/netty-5.0.0.Alpha1/jar/all-in-one" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../../../Java/opensource/netty/netty-5.0.0.Alpha1/jar/all-in-one" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../../../Java/opensource/netty/netty-5.0.0.Alpha1/jar/all-in-one" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>

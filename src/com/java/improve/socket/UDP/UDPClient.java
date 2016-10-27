@@ -29,6 +29,7 @@ public class UDPClient {
         接收服务器端响应的数据
          */
 
+
         //1.创建数据报,用于接收服务器端发送的数据
         byte[] data2 = new byte[1024];
         DatagramPacket packet1 = new DatagramPacket(data2,data2.length);

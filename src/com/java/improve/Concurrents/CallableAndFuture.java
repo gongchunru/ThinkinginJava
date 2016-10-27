@@ -13,14 +13,15 @@ public class CallableAndFuture {
         Callable<Integer> callable = new Callable<Integer>() {
             @Override
             public Integer call() throws Exception {
-                return new Random().nextInt();
+//                return new Random().nextInt();
+                return 2;
             }
         };
 
         FutureTask<Integer> futureTask = new FutureTask<Integer>(callable);
         new Thread(futureTask).start();
         try{
-            Thread.sleep(5000);
+            Thread.sleep(500);
             System.out.println(futureTask.get());
         }catch (InterruptedException e){
             e.printStackTrace();
