@@ -27,7 +27,7 @@ public class SelectSortTest {
                     System.out.println("第"+j+"趟比较，当前的最小值："+data[minIndex]);
                 }
             }
-            if (minIndex!=i){//如果不想等，说明data[minIndex]比data[i]最小，则和data[i]交换
+            if (minIndex!=i){//如果不相等，说明data[minIndex]比data[i]最小，则和data[i]交换
                 swap(data,i,minIndex);
                 print(data);
             }
