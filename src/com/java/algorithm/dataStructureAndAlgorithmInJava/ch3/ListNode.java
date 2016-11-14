@@ -118,6 +118,20 @@ public class ListNode {
         return headNode;
     }
 
+    /**
+     * 删除单向链表
+     * 时间复杂度为O(n) ,用于扫描大小为n的整个链表
+     * 空间复杂度为O(1) ,用于创建临时变量.
+     */
+
+    void deleteListNode(ListNode head){
+        ListNode auxilaryNode,iterator = head;
+        while (iterator!=null){
+            auxilaryNode = iterator.getNext();
+            iterator = null;//方便垃圾回收机制回收.
+            iterator = auxilaryNode;
+        }
+    }
 
 
 }
