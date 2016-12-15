@@ -9,7 +9,7 @@ public class DLLNode {
     private int data;
     private DLLNode next;
     private DLLNode previous;
-    private DLLNode(int data){
+    public DLLNode(int data){
         this.data = data;
     }
 
